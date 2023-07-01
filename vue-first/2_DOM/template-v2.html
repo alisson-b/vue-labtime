@@ -2,26 +2,37 @@
 
 <div id="app">
     <input type="text" v-on:input="alteraMessage">
-    <p>{{ message }}</p>
+    <p v-once>{{ message }}</p>
     <p>{{ saudacao() }}</p>
-    <a v-bind:href="link">Google</a>
-</div>
+    <a v-bind:href="link">Google</a>    
+    <div>  
+        <span v-bind:title="titulo">
+            Eu sou um cordeirinho de Deus!
+        </span>
+    </div>
+  
+    <p v-html="linkHtml"></p>
+    <p c3r-bind='abc'></p>
 
-<script>
-    new Vue({
-        el: '#app',
-        data: {
-            message: 'Meu nome e Margarida',
-            link: 'https://www.google.com.br/'
-        },
-        methods: {
-             alteraMessage(e){
-            this.message = e.target.value
-        },
-            saudacao(){
-                return this.message;
-            }
-        }
-       
-    })
-</script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Meu nome e Margarida',
+                link: 'https://www.google.com.br/',
+                titulo: 'É mesmo, e ainda por cima é lindo!',
+                linkHtml:'<a href="https://www.google.com.br/">Google</a>',
+            },
+            methods: {
+                alteraMessage(e) {
+                    this.message = e.target.value;
+                },
+                saudacao() {
+                    this.message = "Meu nome é arlindo!";
+                    return this.message;
+                }
+            },
+
+        })
+
+    </script>
